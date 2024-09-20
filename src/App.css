@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0000;
+}
+
+::-webkit-scrollbar {
+  background: #0000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--maincolor--);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--maincolor--);
+}
+
+:root {
+  --maincolor--: #0858f7;
+  --color292929--: #292929;
+  --colorbg--: #ebe9e9;
+  --searchBoxBg--: #f0f5ff;
+}
+
+.btn-blue {
+  background: var(--maincolor--) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  border-radius: 5px !important;
+  padding-bottom: 2px;
+}
+
+.btn-blue-wrapper {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 100%;
+
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background: var(--colorbg--);
+
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  background: #fff;
+}
+
+header .logo {
+  text-decoration: none;
+}
+
+header .logo img {
+  width: 40px;
+}
+
+header .logo span {
+  color: var(--color292929--);
+  font-weight: 800;
+  font-size: 24px;
+}
+
+header button.rounded-circle {
+  min-width: 40px !important;
+  width: 40px !important;
+  height: 40px !important;
+  background: #f0f5ff !important;
+  color: var(--maincolor--);
+
+}
+
+header button.rounded-circle svg {
+  color: var(--color292929--);
+  font-size: 18px !important;
+  transition: all .2s ease-in-out;
+}
+
+header button.rounded-circle:hover svg {
+  color: var(--maincolor--) !important;
+
+}
+
+.searchBox {
+  width: 400px;
+  height: 40px;
+  padding: 3px 15px;
+  background: var(--searchBoxBg--);
+  border-radius: 6px;
+  margin-left: 10px;
+}
+
+.searchBox input {
+  background: transparent;
+  border: 0px;
+  outline: none;
+  padding-left: 5px;
+  font-size: 14px;
+  color: var(--colorbg--);
+}
+
+.searchBox ::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.searchBox svg {
+  font-size: 18px;
+  color: var(--colorbg--);
+}
+
+.header-button .rounded-circle {
+  margin-right: 10px;
+}
+
+.myAcc {
+  text-align: left !important;
+  color: black;
+  text-transform: capitalize !important;
+}
+
+.userImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  padding: 2px;
+  border-radius: 100%;
+
+}
+
+.userImg .rounded-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+}
+
+.userImg .rounded-circle img {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+}
+
+.myAcc .userInfo {
+  padding-left: 10px;
+}
+
+.myAcc .userInfo h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  color: var(--color292929--);
+}
+
+.myAcc .userInfo p {
+  font-size: 12px;
+  font-weight: 500;
+  color: black;
+  opacity: 0.7;
+  margin-top: 0px;
+}
+
+#account-menu li svg {
+  font-size: 20px !important;
+}
+
+#account-menu li {
+  font-size: 15px !important;
+  padding: 12px 15px !important;
+}
+
+#account-menu li svg {
+  font-size: 20px !important;
+}
+
+.MuiPaper-elevation {
+  margin-top: 10px;
+}
+
+#notification .MuiPaper-elevation {
+  right: 240px !important;
+  width: 250px !important;
+  left: auto !important;
+  margin-top: 10px;
+}
+
+.dropdown_list h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.dropdown_list .head h4 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.dropdown_list li.MuiButtonBase-root {
+  background: #ebf6ff !important;
+  color: #000 !important;
+  padding: 10px 15px !important;
+}
+
+.dropdown_list li.MuiButtonBase-root:hover {
+  background: #e2e8ed !important;
+}
+
+.dropdown_list .head {
+  padding-left: 10px;
+  padding-bottom: 0px;
+}
+
+.dropdownInfo {
+  padding-left: 15px;
+}
+
+.dropdownInfo h4 {
+  font-size: 15px;
+  font-weight: 500;
+  white-space: break-spaces;
+  line-height: 21px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.dropdownInfo h4 b {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.dropdownInfo p {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 0px;
+}
+
+.text-sky {
+  color: var(--maincolor--) !important;
+}
+
+.dropdown_list .scroll {
+  max-height: 300px;
+  overflow-y: scroll;
+}
