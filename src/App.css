@@ -52,12 +52,13 @@
 .body {
   font-family: "Open Sans", sans-serif !important;
   background: #ebe9e9;
+  overflow-x: hidden;
 }
 
 header {
   width: 100%;
   height: 70px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.7);
   position: fixed;
   top: 0px;
   left: 0px;
@@ -270,7 +271,13 @@ header button.rounded-circle:hover svg {
 .main .sidebarWrapper {
   width: 20%;
   flex: 0 0 20%;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s;
+}
+
+.main .sidebarWrapper.toggle {
+  width: 0%;
+  flex: 0 0 0%;
+ 
 }
 
 .main .sidebarWrapper .sidebar {
@@ -284,6 +291,11 @@ header button.rounded-circle:hover svg {
   left: 0px;
   background: #fff;
   padding-bottom: 40px;
+  transition: all 0.3s ;
+}
+
+.main .sidebarWrapper.toggle .sidebar {
+  left: -100%;
 }
 
 .main .sidebarWrapper .sidebar::-webkit-scrollbar {
@@ -483,16 +495,23 @@ header button.rounded-circle:hover svg {
 .main .content {
   width: 80%;
   flex: 0 0 80%;
+  transition: all 0.3s ;
 }
+.main .content.toggle {
+  width: 100%;
+  flex: 0 0 100%;
+}
+
 
 .right-content {
   padding: 90px 30px;
+  padding-bottom: 10px;
 }
 
 .dashboardBoxWrapper {
-  gap: 20px;
+  gap: 10px;
   width: 100%;
-  flex-wrap: wrap;
+  display: flex;
 }
 
 .dashboardBoxWrapper .dashboardBox {
@@ -587,4 +606,104 @@ header button.rounded-circle:hover svg {
   font-size:110px;
   color:#000;
  }
+
+ .card{
+  margin:20px 0px;
+  border-radius:10px 
+}
+.card .hd{
+  font-size: 18px;
+  font-weight: bold;
+  color: #403e57;
+}
+
+.cardFilters .col-md-3 h4{
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: capitalize;
+  color: #403e57;
+}
+
+h1, h2, h3, h4, h5, h6{color: #403e57;}
+
+.table-responsive::-webkit-scrollbar-thumb{background: #ccc !important;}
+.table .thead-dark th{
+  background-color: #1866ee !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  font-size: 13px !important;
+  color: #fff;
+}
+
+.table tbody td{
+  font-size: 14px !important;
+  color: #403e57;
+  font-weight: 500;
+  
+
+}
+table.v-align td{
+  vertical-align: middle !important;
+
+}
+
+.table tbody .actions button{
+  min-width: 32px !important;
+  height:32px !important;
+  width: 32px !important;
+  margin: 0px 3px !important;
+}
+.table tbody .actions .secondary{
+ background: rgba(203, 60, 231, 0.2) !important;
+}
+.table tbody .actions .success{
+  background: rgba(26, 159, 83, 0.2) !important;
+ }
+ .table tbody .actions .error{
+  background: rgba(241, 17, 51, 0.2) !important;
+ }
+.table tbody .actions button svg{
+ font-size: 32px !important;
+}
  
+.table td .price{width: 100%;
+  display: block;
+
+}
+.tableFooter{padding-bottom: 20px;}
+.tableFooter .pagination{
+  margin-left: auto;
+}
+.tableFooter p{font-size: 14px; font-weight: 500; margin-bottom: 0px;}
+
+.css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
+  background-color: #0858f7 !important;
+}
+.shadow{
+  display: flex;
+  flex-wrap: wrap;
+  gap:  70%;
+
+}
+
+form .form-group{
+  margin-bottom: 15px;
+}
+form .form-group h6{
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+form .form-group input, form .form-group textarea{
+  background: #fafafa;
+  width: 100%;
+  outline: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  height: 40px;
+  padding-left: 15px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+form .form-group textarea{
+  height: 120px;
+  padding-top: 15px;
+}
+

@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import Button from '@mui/material/Button'
 import { MdDashboard, MdMessage } from "react-icons/md"
 import { FaAngleRight, FaBell, FaProductHunt } from "react-icons/fa6"
 import { IoIosSettings, IoMdLogOut } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 
+
 const Sidebar = () => {
 
   const [activeTab, setActiveTab] = useState(null)
   const [isToggleSubmenu, setIsToggleSubmenu] = useState(false)
 
+ 
   const isOpenSubmenu = (index) => {
     setActiveTab(index)
     setIsToggleSubmenu(!isToggleSubmenu)
@@ -20,7 +22,7 @@ const Sidebar = () => {
         <ul>
           <li>
             <Link to="/">
-              <Button className={`w-100 ${activeTab === 0 ? 'active' : ''}`} onClick={() => isOpenSubmenu(0)}><span className='icon'><MdDashboard /></span>
+              <Button className={`w-100 ${activeTab === 0 ? 'active' : ''}`} onClick={() => isOpenSubmenu(0)}> <span className='icon'><MdDashboard /></span>
                 Dashboard
                 <span className='arrow'><FaAngleRight /></span>
               </Button>
@@ -45,8 +47,8 @@ const Sidebar = () => {
           </li>
           <li>
 
-            <Link to="/"> <Button className={`w-100 ${activeTab === 2 ? 'active' : ''}`} onClick={() => isOpenSubmenu(2)}><span className='icon'><MdMessage /></span>
-              Messages
+            <Link to="/formupload"> <Button className={`w-100 ${activeTab === 2 ? 'active' : ''}`} onClick={() => isOpenSubmenu(2)}><span className='icon'><MdMessage /></span>
+              Form
               <span className='arrow'><FaAngleRight /></span>
             </Button></Link>
 
