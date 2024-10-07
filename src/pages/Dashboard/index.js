@@ -1,5 +1,7 @@
 import { FaEye, FaPencilAlt, FaUserCircle } from "react-icons/fa";
 import DashboardBox from "./components/dashboardBox";
+import Transitdeliveries from "./components/transitdeliveries";
+import Unremovedpack from "./components/unremovedpack";
 import { IoMdCart } from "react-icons/io";
 import { MdDelete, MdShoppingBag } from "react-icons/md";
 import { GiStarsStack } from "react-icons/gi";
@@ -21,10 +23,9 @@ const Dashboard = () => {
                 <div className="row dashboardBoxWrapperRow">
                     <div className="col-md-12 col-sm-12">
                         <div className="dashboardBoxWrapper d-flex">
-                            <DashboardBox color={["#1da256", "#48d483"]} icon={<FaUserCircle />} />
-                            <DashboardBox color={["#c012e2", "#eb64fe"]} icon={<IoMdCart />} />
-                            <DashboardBox color={["#e1950e", "#f3cd29"]} icon={<GiStarsStack />} />
-
+                            <DashboardBox color={["#1da256", "#48d483"]} icon={<IoMdCart/>} />
+                            <Transitdeliveries color={["#c012e2", "#eb64fe"]} icon={<IoMdCart/>} />
+                            <Unremovedpack color={["#e1950e", "#f3cd29"]} icon={<IoMdCart/>} />
                         </div>
                     </div>
 

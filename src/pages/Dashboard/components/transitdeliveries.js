@@ -2,7 +2,7 @@ import { TrendingDown, TrendingUp} from "@mui/icons-material"
 import { HiDotsVertical } from "react-icons/hi"
 
 
-const DashboardBox = (props) => {
+const Transitdeliveries = (props) => {
 
     return (
         <div className='dashboardBox'
@@ -18,8 +18,8 @@ const DashboardBox = (props) => {
             }
             <div className="innerDashbox">
                 <div className="col1">
-                    <h4 className="text-white">Livraisons en cours</h4>
-                    <span className="text-white">18</span>
+                    <h4 className="text-white">Livraisons en transit</h4>
+                    <span className="text-white">03</span>
                 </div>
 
                 <div className="innerDashboxIcon ">
@@ -45,4 +45,4 @@ const DashboardBox = (props) => {
     )
 }
 
-export default DashboardBox
+export default Transitdeliveries
