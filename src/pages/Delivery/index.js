@@ -1,95 +1,100 @@
+import React, { useState } from 'react'
 import { FaEye, FaPencilAlt, FaUserCircle } from "react-icons/fa";
-import DashboardBox from "./components/dashboardBox";
-import { IoMdCart } from "react-icons/io";
-import { MdDelete} from "react-icons/md";
-import { GiStarsStack } from "react-icons/gi";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import Breadcrumbs from '@mui/material/Breadcrumbs'
+import HomeIcon from '@mui/icons-material/Home'
+import styled from 'styled-components'
+import { Chip } from '@mui/material'
+import { Link } from "react-router-dom"
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { AirportShuttle } from '@mui/icons-material'
 import Button from '@mui/material/Button';
+import { MdDelete } from "react-icons/md";
 import Pagination from "@mui/material/Pagination";
-import React, { useContext, useEffect, useState } from 'react'
-import { MyContext } from '../../App';
+import FormControl from "@mui/material/FormControl";
 
 
-const Dashboard = () => {
-    const [showBy, setshowBy] = useState('');
-    const [LivBy, setLivBy] = useState('');
-    const context = useContext(MyContext)
 
-    useEffect(() => {
-             context.setIsHideSidebarAndHeader(false);
-    }, [])
+const StyledBreadcrumb = styled(Chip)(({ theme }) => {
+    return {
+        height: '20px',
+        color: 'text-primary'
+    }
+});
 
 
+
+const Delivery = () => {
+
+    const [categoryVal, setCategoryVal] = useState('');
+    const handleChangeCategory = (event) => {
+        setCategoryVal(event.target.value);
+    };
+
+    const [showForm, setShowForm] = useState(false);
+
+
+    const handleButtonClick = () => {
+        setShowForm(!showForm);
+    };
     return (
-
-     
         <>
-            <div className="right-content w-100">
-                <div className="row dashboardBoxWrapperRow">
-                    <div className="col-md-12 col-sm-12">
-                        <div className="dashboardBoxWrapper d-flex">
-                            <DashboardBox color={["#1da256", "#48d483"]} icon={<FaUserCircle />} />
-                            <DashboardBox color={["#c012e2", "#eb64fe"]} icon={<IoMdCart />} />
-                            <DashboardBox color={["#e1950e", "#f3cd29"]} icon={<GiStarsStack />} />
+            <div className='right-content w-100'>
+                <div className='card shadow border-0 w-100 d-flex flex-row p-4'>
+                    <h5 className='mb-0'>Livraison</h5>
+                    <Breadcrumbs aria-label='breadcrumb' className='breadcrumbs'>
+                        <StyledBreadcrumb
+                            className='styledbreadcrumbs'
+                            component="a"
+                            href="/"
+                            label="Dashboard"
+                            icon={<HomeIcon fontSize="small" />}
+                        />
 
-                        </div>
-                    </div>
 
+                        <StyledBreadcrumb
+                            className='styledbreadcrumbs'
+                            label="Livraison"
+                            href="#"
+                            deleteIcon={<ExpandMoreIcon />}
+                        />
+                    </Breadcrumbs>
                 </div>
+                <div >
+                    <Link to={"#"} onClick={handleButtonClick}> {/* Using "#" to stay on the page */}
+                        <button type="submit" className="btn btn-primary w-100">
+                            <span className='icon-delivery'><AirportShuttle /></span>
+                            CLIQUEZ ICI POUR CREER UNE NOUVELLE LIVRAISON
+                        </button>
+                    </Link>
+                </div>
+                {showForm && (
+                    <div className="mt-4">
+                        <h5>Création  d'une Nouvelle Livraison</h5>
+                        <form>
+                            <div className="form-group">
+                                <label htmlFor="matricule">Matricule du Bus</label>
+                                <input type="text" className="form-control" id="matricule" placeholder="Entrez le matricule du bus" required />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="matricule">Chauffeur Bus</label>
+                                <input type="text" className="form-control" id="matricule" placeholder="Entrez le chauffeur du bus" required />
+                            </div>
+
+
+                            <button type="submit" className="btn btn-success mt-3">Soumettre</button>
+                        </form>
+                    </div>
+                )}
+
+
                 <div className="card shadow border-0 p-3 mt-4">
-                    <h3 className="hd">Table1 title</h3>
+                    <h3 className="hd">Table Livraison</h3>
 
                     <div className="row cardFilters mt-3">
-                        <div className="col-md-3">
-                            <h4>Trier par</h4>
-                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small" className="w-100">
-                                <Select
-                                    value={showBy}
-                                    onChange={(e) => setshowBy(e.target.value)}
-                                    displayEmpty
-                                    inputProps={{ 'aria-label': 'Without label' }}
-                                    labelId="demo-select-samll-label"
-                                    className="w-100"
-                                >
-                                    <MenuItem value="" >
-                                        <em>Aucun</em>
-                                    </MenuItem>
-
-                                    <MenuItem value={10}> Dix </MenuItem>
-                                    <MenuItem value={20}> Vingt </MenuItem>
-                                    <MenuItem value={30}> Trente </MenuItem>
-
-                                </Select>
-                            </FormControl>
-                        </div>
-
-                        <div className="col-md-3">
-                            <h4>Livraison par</h4>
-                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small" className="w-100">
-
-                                <Select
-                                    value={LivBy}
-                                    onChange={(e) => setLivBy(e.target.value)}
-                                    displayEmpty
-                                    inputProps={{ 'aria-label': 'Without label' }}
-                                    labelId="demo-select-samll-label"
-
-                                    className="w-100 "
-                                >
-                                    <MenuItem value="">
-                                        <em>Aucun</em>
-                                    </MenuItem>
-
-                                    <MenuItem value={10}> Dix </MenuItem>
-                                    <MenuItem value={20}> Vingt </MenuItem>
-                                    <MenuItem value={30}> Trente </MenuItem>
-
-                                </Select>
-                            </FormControl>
-                        </div>
-
+                       
+                     
 
                     </div>
 
@@ -318,17 +323,18 @@ const Dashboard = () => {
 
                         <div className="d-flex tableFooter">
                             <p>Showing <b>5 </b> of <b>20 </b> results</p>
-                            <Pagination count={20} color="primary" className="pagination" 
-                            showFirstButton showLastButton
+                            <Pagination count={20} color="primary" className="pagination"
+                                showFirstButton showLastButton
                             />
 
                         </div>
                     </div>
 
                 </div>
+
             </div>
         </>
     )
-
 }
-export default Dashboard;
+
+export default Delivery

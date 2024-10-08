@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from "react-router-dom"
 import logo from '../../assets/images/logo-64.png'
 import user from '../../assets/images/user.jpg'
@@ -6,7 +6,6 @@ import Button from '@mui/material/Button'
 import { MdMenuOpen } from 'react-icons/md'
 import SearchBox from '../SearchBox'
 import { MdOutlineLightMode } from 'react-icons/md'
-import { MdDarkMode } from 'react-icons/md'
 import { MdOutlineMailOutline } from 'react-icons/md'
 import { FaRegBell } from 'react-icons/fa6'
 import Menu from '@mui/material/Menu';
@@ -24,6 +23,8 @@ const Header = () => {
   const [notificationOpenDrop, setNotificationOpenDrop] = React.useState(null);
   const open = Boolean(anchorEl);
   const openNotifications = Boolean(notificationOpenDrop);
+
+
 
   const context = useContext(MyContext)
 
@@ -62,27 +63,27 @@ const Header = () => {
             {/* Logo Wrapper ends */}
 
             {/* searchBox Wrapper starts */}
-           
+
             {
-                context.windowWidth> 992 &&   
-                
-                <div className='col-sm-3 d-flex align-items-center part2 res-hide'>
+              context.windowWidth > 992 &&
+
+              <div className='col-sm-3 d-flex align-items-center part2 res-hide'>
                 <Button className='rounded-circle mr-3' onClick={() => context.setIsToggleSidebar(!context.isToggleSidebar)}>
                   <MdMenuOpen /></Button>
                 <SearchBox />
-  
+
               </div>
-  
+
               /* searchBox Wrapper ends */
-  
+
             }
 
-           
+
             {/* other header Wrapper starts */}
             <div className="col-sm-7 d-flex align-items-center justify-content-end part3">
               <div className='header-button'>
                 <Button className='rounded-circle mr-10'><MdOutlineLightMode /></Button>
-       
+
                 <Button className='rounded-circle mr-10'>< MdOutlineMailOutline /></Button>
                 <Button className='rounded-circle' onClick={handlenotificationOpenDrop} ><FaRegBell /></Button>
 
@@ -255,57 +256,67 @@ const Header = () => {
                 </div>
               </div>
 
-              {/* user profile starts*/}
+              { 
+                context.isLogin!==true ?
+                <Link to={'/login'}>
+                   <Button className="btn-blue btn-lg btn-round">Se Connecter</Button>
+              
+                </Link>
+                :
+               
               <div className='myAccWrapper'>
 
-                <Button className='myAcc d-flex align-items-center' onClick={handleOpenMyAccDrop}>
-                  <div className='userImg'>
-                    <span className='rounded-circle'>
-                      <img src={user} alt='userImg' />
-                    </span>
-                  </div>
+              <Button className='myAcc d-flex align-items-center' onClick={handleOpenMyAccDrop}>
+                <div className='userImg'>
+                  <span className='rounded-circle'>
+                    <img src={user} alt='userImg' />
+                  </span>
+                </div>
 
-                  <div className='userInfo res-hide'>
-                    <h4>Sikapa Lucien</h4>
-                    <p className='mb-0'>MAT0025</p>
-                  </div>
+                <div className='userInfo res-hide'>
+                  <h4>Sikapa Lucien</h4>
+                  <p className='mb-0'>MAT0025</p>
+                </div>
 
-                </Button>
+              </Button>
 
-                <Menu
-                  anchorEl={anchorEl}
-                  id="account-menu"
-                  open={open}
-                  onClose={handleCloseMyAccDrop}
-                  onClick={handleCloseMyAccDrop}
+              <Menu
+                anchorEl={anchorEl}
+                id="account-menu"
+                open={open}
+                onClose={handleCloseMyAccDrop}
+                onClick={handleCloseMyAccDrop}
 
-                  transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                  anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                >
+                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+              >
 
-                  <MenuItem onClick={handleCloseMyAccDrop}>
-                    <ListItemIcon>
-                      <PersonAdd />
-                    </ListItemIcon>
-                    Mon Compte
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseMyAccDrop}>
-                    <ListItemIcon>
-                      <Settings />
-                    </ListItemIcon>
-                    Paramètres
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseMyAccDrop}>
-                    <ListItemIcon>
-                      <Logout />
-                    </ListItemIcon>
-                    Déconnexion
-                  </MenuItem>
-                </Menu>
+                <MenuItem onClick={handleCloseMyAccDrop}>
+                  <ListItemIcon>
+                    <PersonAdd />
+                  </ListItemIcon>
+                  Mon Compte
+                </MenuItem>
+                <MenuItem onClick={handleCloseMyAccDrop}>
+                  <ListItemIcon>
+                    <Settings />
+                  </ListItemIcon>
+                  Paramètres
+                </MenuItem>
+                <MenuItem onClick={handleCloseMyAccDrop}>
+                  <ListItemIcon>
+                    <Logout />
+                  </ListItemIcon>
+                  Déconnexion
+                </MenuItem>
+              </Menu>
 
-                {/* user profile ends*/}
+              {/* user profile ends*/}
 
-              </div>
+            </div>
+              }
+              
+              
             </div>
             {/* other header Wrapper ends*/}
           </div>
