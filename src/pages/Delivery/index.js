@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaEye, FaPencilAlt, FaUserCircle } from "react-icons/fa";
+import { FaAd, FaEye, FaPencilAlt, FaPlus, FaUserCircle } from "react-icons/fa";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import HomeIcon from '@mui/icons-material/Home'
@@ -10,7 +10,6 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { AirportShuttle } from '@mui/icons-material'
 import Button from '@mui/material/Button';
-import { MdDelete } from "react-icons/md";
 import Pagination from "@mui/material/Pagination";
 import FormControl from "@mui/material/FormControl";
 
@@ -93,8 +92,8 @@ const Delivery = () => {
                     <h3 className="hd">Table Livraison</h3>
 
                     <div className="row cardFilters mt-3">
-                       
-                     
+
+
 
                     </div>
 
@@ -104,220 +103,75 @@ const Delivery = () => {
                         <table className="table table-bordered v-align">
                             <thead className="thead-dark">
                                 <tr>
-                                    <th>UID</th>
-                                    <th>ID COLIS</th>
-                                    <th>ID LIVRAISON</th>
-                                    <th>VILLE DEPART</th>
-                                    <th>VILLE DESTINATRICE</th>
-                                    <th>EXPEDITEUR</th>
-                                    <th>DESTINATAIRE</th>
-                                    <th>TYPE DE COLIS</th>
-                                    <th>PRIX</th>
-                                    <th>ACTIONS</th>
+                                    <th>UID Livraison</th>
+                                    <th>Destination</th>
+                                    <th>Source</th>
+                                    <th>Matricule Bus</th>
+                                    <th>Chauffeur Bus</th>
+                                    <th>Date Départ</th>
+                                    <th>Actions</th>
+                                    <th>Etat de la Livraison</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 <tr>
                                     <td>#1</td>
-                                    <td><b>GN00054</b></td>
-                                    <td>GLIV052</td>
+
                                     <td>YAOUNDE</td>
                                     <td>DOUALA</td>
                                     <td>CHWOFOH</td>
                                     <td>KAMDEM</td>
                                     <td>DIPLOME</td>
+
                                     <td>
-                                        <span className="price text-danger">1000 XAF</span>
-                                    </td>
-                                    <td>
-                                        <div className="actions d-flex align-items-center">
+                                        <div className="actions d-flex align-items-center justify-content-center">
                                             <Button color="secondary" className="secondary"> <FaEye /> </Button>
+                                            <Button color="primary" className="primary"> <FaPlus /> </Button>
                                             <Button color="success" className="success"> <FaPencilAlt /> </Button>
-                                            <Button color="error" className="error"> <MdDelete /> </Button>
                                         </div>
                                     </td>
+                                    <td className='actionsBtn justify-content-center'> <Button color="secondary" className="btn-yellow"> En attente départ </Button></td> {/* on a les etats suivants en chemin, en attente depart , arrivé */}
                                 </tr>
                                 <tr>
-                                    <td>#1</td>
-                                    <td><b>GN00054</b></td>
-                                    <td>GLIV052</td>
+                                    <td>#2</td>
                                     <td>YAOUNDE</td>
                                     <td>DOUALA</td>
                                     <td>CHWOFOH</td>
                                     <td>KAMDEM</td>
                                     <td>DIPLOME</td>
+
                                     <td>
-                                        <span className="price text-danger">1000 XAF</span>
-                                    </td>
-                                    <td>
-                                        <div className="actions d-flex align-items-center">
+                                        <div className="actions d-flex align-items-center justify-content-center">
                                             <Button color="secondary" className="secondary"> <FaEye /> </Button>
+                                           <Link to={"/send-package"}>
+                                                <Button color="primary" className="primary"> <FaPlus /> </Button>
+                                           </Link>
                                             <Button color="success" className="success"> <FaPencilAlt /> </Button>
-                                            <Button color="error" className="error"> <MdDelete /> </Button>
                                         </div>
                                     </td>
+                                   <div className='justify-content-center'> <td className='actionsBtn '> <Button color="success" className="btn-green"> En chemin </Button></td> {/* on a les etats suivants en chemin, en attente depart , arrivé */}
+                                   </div>
                                 </tr>
                                 <tr>
-                                    <td>#1</td>
-                                    <td><b>GN00054</b></td>
-                                    <td>GLIV052</td>
+                                    <td>#2</td>
                                     <td>YAOUNDE</td>
                                     <td>DOUALA</td>
                                     <td>CHWOFOH</td>
                                     <td>KAMDEM</td>
                                     <td>DIPLOME</td>
+
                                     <td>
-                                        <span className="price text-danger">1000 XAF</span>
-                                    </td>
-                                    <td>
-                                        <div className="actions d-flex align-items-center">
+                                        <div className="actions d-flex align-items-center justify-content-center">
                                             <Button color="secondary" className="secondary"> <FaEye /> </Button>
+                                            <Button color="primary" className="primary"> <FaPlus /> </Button>
                                             <Button color="success" className="success"> <FaPencilAlt /> </Button>
-                                            <Button color="error" className="error"> <MdDelete /> </Button>
                                         </div>
                                     </td>
+                                    <td className='actionsBtn justify-content-center'> <Button color="" className="error"> Arrivé </Button></td> {/* on a les etats suivants en chemin, en attente depart , arrivé */}
+
                                 </tr>
-                                <tr>
-                                    <td>#1</td>
-                                    <td><b>GN00054</b></td>
-                                    <td>GLIV052</td>
-                                    <td>YAOUNDE</td>
-                                    <td>DOUALA</td>
-                                    <td>CHWOFOH</td>
-                                    <td>KAMDEM</td>
-                                    <td>DIPLOME</td>
-                                    <td>
-                                        <span className="price text-danger">1000 XAF</span>
-                                    </td>
-                                    <td>
-                                        <div className="actions d-flex align-items-center">
-                                            <Button color="secondary" className="secondary"> <FaEye /> </Button>
-                                            <Button color="success" className="success"> <FaPencilAlt /> </Button>
-                                            <Button color="error" className="error"> <MdDelete /> </Button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#1</td>
-                                    <td><b>GN00054</b></td>
-                                    <td>GLIV052</td>
-                                    <td>YAOUNDE</td>
-                                    <td>DOUALA</td>
-                                    <td>CHWOFOH</td>
-                                    <td>KAMDEM</td>
-                                    <td>DIPLOME</td>
-                                    <td>
-                                        <span className="price text-danger">1000 XAF</span>
-                                    </td>
-                                    <td>
-                                        <div className="actions d-flex align-items-center">
-                                            <Button color="secondary" className="secondary"> <FaEye /> </Button>
-                                            <Button color="success" className="success"> <FaPencilAlt /> </Button>
-                                            <Button color="error" className="error"> <MdDelete /> </Button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#1</td>
-                                    <td><b>GN00054</b></td>
-                                    <td>GLIV052</td>
-                                    <td>YAOUNDE</td>
-                                    <td>DOUALA</td>
-                                    <td>CHWOFOH</td>
-                                    <td>KAMDEM</td>
-                                    <td>DIPLOME</td>
-                                    <td>
-                                        <span className="price text-danger">1000 XAF</span>
-                                    </td>
-                                    <td>
-                                        <div className="actions d-flex align-items-center">
-                                            <Button color="secondary" className="secondary"> <FaEye /> </Button>
-                                            <Button color="success" className="success"> <FaPencilAlt /> </Button>
-                                            <Button color="error" className="error"> <MdDelete /> </Button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#1</td>
-                                    <td><b>GN00054</b></td>
-                                    <td>GLIV052</td>
-                                    <td>YAOUNDE</td>
-                                    <td>DOUALA</td>
-                                    <td>CHWOFOH</td>
-                                    <td>KAMDEM</td>
-                                    <td>DIPLOME</td>
-                                    <td>
-                                        <span className="price text-danger">1000 XAF</span>
-                                    </td>
-                                    <td>
-                                        <div className="actions d-flex align-items-center">
-                                            <Button color="secondary" className="secondary"> <FaEye /> </Button>
-                                            <Button color="success" className="success"> <FaPencilAlt /> </Button>
-                                            <Button color="error" className="error"> <MdDelete /> </Button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#1</td>
-                                    <td><b>GN00054</b></td>
-                                    <td>GLIV052</td>
-                                    <td>YAOUNDE</td>
-                                    <td>DOUALA</td>
-                                    <td>CHWOFOH</td>
-                                    <td>KAMDEM</td>
-                                    <td>DIPLOME</td>
-                                    <td>
-                                        <span className="price text-danger">1000 XAF</span>
-                                    </td>
-                                    <td>
-                                        <div className="actions d-flex align-items-center">
-                                            <Button color="secondary" className="secondary"> <FaEye /> </Button>
-                                            <Button color="success" className="success"> <FaPencilAlt /> </Button>
-                                            <Button color="error" className="error"> <MdDelete /> </Button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#1</td>
-                                    <td><b>GN00054</b></td>
-                                    <td>GLIV052</td>
-                                    <td>YAOUNDE</td>
-                                    <td>DOUALA</td>
-                                    <td>CHWOFOH</td>
-                                    <td>KAMDEM</td>
-                                    <td>DIPLOME</td>
-                                    <td>
-                                        <span className="price text-danger">1000 XAF</span>
-                                    </td>
-                                    <td>
-                                        <div className="actions d-flex align-items-center">
-                                            <Button color="secondary" className="secondary"> <FaEye /> </Button>
-                                            <Button color="success" className="success"> <FaPencilAlt /> </Button>
-                                            <Button color="error" className="error"> <MdDelete /> </Button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#1</td>
-                                    <td><b>GN00054</b></td>
-                                    <td>GLIV052</td>
-                                    <td>YAOUNDE</td>
-                                    <td>DOUALA</td>
-                                    <td>CHWOFOH</td>
-                                    <td>KAMDEM</td>
-                                    <td>DIPLOME</td>
-                                    <td>
-                                        <span className="price text-danger">1000 XAF</span>
-                                    </td>
-                                    <td>
-                                        <div className="actions d-flex align-items-center">
-                                            <Button color="secondary" className="secondary"> <FaEye /> </Button>
-                                            <Button color="success" className="success"> <FaPencilAlt /> </Button>
-                                            <Button color="error" className="error"> <MdDelete /> </Button>
-                                        </div>
-                                    </td>
-                                </tr>
+
                             </tbody>
                         </table>
 

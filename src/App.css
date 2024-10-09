@@ -27,6 +27,8 @@
   --colorbg--: #ebe9e9;
   --searchBoxBg--: #f0f5ff;
   --redcolor--:rgb(198, 52, 52);
+  --yellowcolor--:rgb(196, 202, 8);
+  --greencolor--:rgb(23, 159, 48);
 }
 
 .btn-blue {
@@ -36,11 +38,31 @@
   color: #fff !important;
   border-radius: 8px !important;
   text-transform: capitalize !important;
-  padding-bottom: 2px;
+  padding-bottom: 2px; 
 }
 
 .red{
   background:var(--redcolor--) !important;
+  font-size: 12px !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-transform: capitalize !important;
+  padding-bottom: 2px;
+
+}
+.btn-yellow{
+  background:var(--yellowcolor--) !important;
+  font-size: 12px !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-transform: capitalize !important;
+  padding-bottom: 2px;
+
+}
+.btn-green{
+  background:var(--greencolor--) !important;
   font-size: 12px !important;
   color: #fff !important;
   font-weight: 600 !important;
@@ -697,11 +719,18 @@ table.v-align td{
 .table tbody .actions .secondary{
  background: rgba(203, 60, 231, 0.2) !important;
 }
+.table tbody .actions .secondary :hover{
+  background: rgba(203, 60, 231, 0.2) !important;
+  
+ }
 .table tbody .actions .success{
   background: rgba(26, 159, 83, 0.2) !important;
  }
  .table tbody .actions .error{
   background: rgba(241, 17, 51, 0.2) !important;
+ }
+ .table tbody .actions .primary{
+  background: rgba(17, 196, 241, 0.2) !important;
  }
 .table tbody .actions button svg{
  font-size: 32px !important;
@@ -823,3 +852,24 @@ position: relative;
 .icon-delivery{
   margin-right: 20px;
 }
+.table tbody .actionsBtn button{
+  min-width: 130px !important;
+  height:32px !important;
+  font-size: 13px;
+  width: 130px !important;
+  margin: 0px 3px !important;
+  text-transform: capitalize;
+}
+.table tbody .actionsBtn .secondary{
+ background: rgba(146, 8, 146, 0.2) !important;
+ border-radius: 8px !important;
+}
+.table tbody .actionsBtn .success{
+  background: rgba(7, 186, 87, 0.2) !important;
+  border-radius: 8px !important;
+ }
+ .table tbody .actionsBtn .error{
+  background: rgba(236, 4, 39, 0.2) !important;
+  color: #000 !important;
+  border-radius: 8px !important;
+ }
