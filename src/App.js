@@ -12,6 +12,8 @@ import SendColis from './pages/SendColis';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import { createContext,  useEffect,  useState } from 'react';
+import { NotificationProvider } from './NotificationContext'; // Import the provider
+
 
 const MyContext = createContext();
 
@@ -51,6 +53,7 @@ useEffect(()=>{
 
   return (
     <BrowserRouter>
+          <NotificationProvider>
     <MyContext.Provider value={values}>
         
         {
@@ -80,6 +83,7 @@ useEffect(()=>{
         </div>
       </div>
       </MyContext.Provider>
+      </NotificationProvider>
     </BrowserRouter>
   );
 }
