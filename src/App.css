@@ -26,16 +26,59 @@
   --color292929--: #292929;
   --colorbg--: #ebe9e9;
   --searchBoxBg--: #f0f5ff;
+  --redcolor--:rgb(198, 52, 52);
+  --yellowcolor--:rgb(196, 202, 8);
+  --greencolor--:rgb(23, 159, 48);
 }
 
 .btn-blue {
-  background: var(--maincolor--) !important;
+  background: var(--maincolor--)  !important;
   font-size: 12px !important;
   font-weight: 600 !important;
   color: #fff !important;
-  border-radius: 5px !important;
-  padding-bottom: 2px;
+  border-radius: 8px !important;
+  text-transform: capitalize !important;
+  padding-bottom: 2px; 
 }
+
+.red{
+  background:var(--redcolor--) !important;
+  font-size: 12px !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-transform: capitalize !important;
+  padding-bottom: 2px;
+
+}
+.btn-yellow{
+  background:var(--yellowcolor--) !important;
+  font-size: 12px !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-transform: capitalize !important;
+  padding-bottom: 2px;
+
+}
+.btn-green{
+  background:var(--greencolor--) !important;
+  font-size: 12px !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-transform: capitalize !important;
+  padding-bottom: 2px;
+
+}
+
+.btn-lg{padding: 5px 25px !important;}
+
+.btn-big{padding: 12px 25px !important; font-size: 18px;}
+
+.btn-big svg{font-size: 24px !important;}
+.btn-round{border-radius: 30px !important; margin-left: 7px;} 
+
 
 .btn-blue-wrapper {
   padding-left: 5px;
@@ -44,10 +87,25 @@
 
 }
 
+
+.full{max-width: 100% !important; flex: 0 0 100% !important; width:100% !important ;}
+
 * {
   margin: 0px;
   padding: 0px;
 }
+
+.link{
+  color: #5e5d72;
+  font-weight: 600;
+}
+
+.link:hover{
+  color: var(--maincolor--) !important;
+  text-decoration: none;
+  
+}
+
 
 .body {
   font-family: "Open Sans", sans-serif !important;
@@ -98,6 +156,8 @@ header button.rounded-circle:hover svg {
   color: var(--maincolor--) !important;
 
 }
+
+header .part2{padding-left: 75px;}
 
 .searchBox {
   width: 400px;
@@ -322,13 +382,13 @@ header button.rounded-circle:hover svg {
 }
 
 .main .sidebarWrapper .sidebar ul li button {
-  color: rgba(0, 0, 0, 0.7) !important;
+  color: rgba(0, 0, 0, 0.7);
   text-align: left;
   justify-content: left;
   border-radius: 10px;
   padding: 12px 10px !important;
   align-items: center;
-  text-transform: capitalize;
+  text-transform: capitalize !important;
   font-weight: 600;
   font-size: 14px !important;
   font-family: "Open Sans", sans-serif !important;
@@ -358,7 +418,7 @@ header button.rounded-circle:hover svg {
 }
 
 .main .sidebarWrapper .sidebar ul li button * {
-  color: rgba(0, 0, 0, 0.7) !important;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .main .sidebarWrapper .sidebar ul li button .arrow {
@@ -416,11 +476,13 @@ header button.rounded-circle:hover svg {
 .main .sidebarWrapper .sidebar ul .submenuWrapper {
   transition: all 0.4s;
   overflow: hidden;
+ 
 
 }
 
 .main .sidebarWrapper .sidebar ul .submenuWrapper.colapsed {
   height: 0px;
+  
 }
 
 .main .sidebarWrapper .sidebar ul .submenuWrapper.colapsed .submenu {
@@ -432,7 +494,9 @@ header button.rounded-circle:hover svg {
   overflow: inherit;
   opacity: 1;
   padding: 10px 0px;
+  
 }
+
 
 .main .sidebarWrapper .sidebar ul .submenuWrapper.colapse .submenu {
   opacity: 1;
@@ -624,7 +688,7 @@ header button.rounded-circle:hover svg {
   color: #403e57;
 }
 
-h1, h2, h3, h4, h5, h6{color: #403e57;}
+h1, h2, h3, h4, h5, h6 {color: #403e57;}
 
 .table-responsive::-webkit-scrollbar-thumb{background: #ccc !important;}
 .table .thead-dark th{
@@ -655,11 +719,18 @@ table.v-align td{
 .table tbody .actions .secondary{
  background: rgba(203, 60, 231, 0.2) !important;
 }
+.table tbody .actions .secondary :hover{
+  background: rgba(203, 60, 231, 0.2) !important;
+  
+ }
 .table tbody .actions .success{
   background: rgba(26, 159, 83, 0.2) !important;
  }
  .table tbody .actions .error{
   background: rgba(241, 17, 51, 0.2) !important;
+ }
+ .table tbody .actions .primary{
+  background: rgba(17, 196, 241, 0.2) !important;
  }
 .table tbody .actions button svg{
  font-size: 32px !important;
@@ -707,3 +778,98 @@ form .form-group textarea{
   padding-top: 15px;
 }
 
+.loginSection, .signUpSection{
+width: 100%;
+height: 100vh;
+padding: 35px 25px;
+background:  #fff ;
+position: relative;
+
+
+}
+
+.loginPatern{
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+  pointer-events: none;
+}
+
+.loginSection .loginBox{width: 400px; height:auto;  margin: auto; padding-top: 5%; }
+
+.loginSection .loginBox .wrapper{width: 100%;
+   height:300px;
+    background: #f0f0f0; 
+    position: relative;
+     z-index: 100;
+    padding: 35px;
+    border-radius: 20px;
+  }
+
+.loginSection .loginBox .wrapper .form-control{ 
+  background: #fff !important; 
+  box-shadow: none !important; 
+  outline: none !important; 
+  border-radius: 10px !important;
+  font-size: 14px;
+  font-weight: 600;
+  height: 45px;
+  padding-left: 40px;
+}
+
+.loginSection .loginBox .wrapper .form-group.focus .icon svg{color: var(--maincolor--) !important;}
+.loginSection .loginBox .wrapper .form-control :focus{ border: 1px solid var(--maincolor--) !important;}
+.loginSection .loginBox .wrapper .form-group .icon{position: absolute; top: 3px; left: 10px;z-index: 100; font-size: 25px;}
+.loginSection .loginBox .wrapper .form-group .icon svg{color: #5e5d72;}
+
+.toggleShowPassword{position:absolute; top: 10px; right: 8px; cursor: pointer;}
+.toggleShowPassword svg{font-size: 22px;}
+
+.loginSection .loginBox .wrapper .link {font-size: 14px; text-transform: lowercase; }
+
+.signUpSection { padding: 0px 0px; height: auto !important;}
+.signUpSection .loginBox{width: 100% !important; background: #e4e4e4 !important; padding-top: 25px 5px !important; position: relative; z-index: 100;  border-radius: 30px; }
+
+.signUpSection .loginBox .wrapper{border: 0px !important;height:auto; background: transparent !important; padding-top: 10px !important; margin-top: 3px;}
+
+.signUpSection .part1{padding-left: 100px; padding-right: 100px; }
+
+
+.signUpSection .part2{padding-top: 50px !important;padding-right: 50px; padding-left: 50px; }
+
+.signUpSection .part1 h1{font-size: 50px; font-weight: 800; margin-top:200px ;}
+
+.signUpSection .part1 p{font-size: 18px; font-weight: 500;}
+
+.card .headpage{
+  display: flex;
+  justify-content:space-between;
+}
+.icon-delivery{
+  margin-right: 20px;
+}
+.table tbody .actionsBtn button{
+  min-width: 130px !important;
+  height:32px !important;
+  font-size: 13px;
+  width: 130px !important;
+  margin: 0px 3px !important;
+  text-transform: capitalize;
+}
+.table tbody .actionsBtn .secondary{
+ background: rgba(146, 8, 146, 0.2) !important;
+ border-radius: 8px !important;
+}
+.table tbody .actionsBtn .success{
+  background: rgba(7, 186, 87, 0.2) !important;
+  border-radius: 8px !important;
+ }
+ .table tbody .actionsBtn .error{
+  background: rgba(236, 4, 39, 0.2) !important;
+  color: #000 !important;
+  border-radius: 8px !important;
+ }

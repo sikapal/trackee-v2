@@ -3,21 +3,30 @@ import DashboardBox from "./components/dashboardBox";
 import Transitdeliveries from "./components/transitdeliveries";
 import Unremovedpack from "./components/unremovedpack";
 import { IoMdCart } from "react-icons/io";
-import { MdDelete, MdShoppingBag } from "react-icons/md";
+import { MdDelete} from "react-icons/md";
 import { GiStarsStack } from "react-icons/gi";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useState } from "react";
-import Button from '@mui/material/Button'
+import Button from '@mui/material/Button';
 import Pagination from "@mui/material/Pagination";
+import React, { useContext, useEffect, useState } from 'react'
+import { MyContext } from '../../App';
+
 
 const Dashboard = () => {
-    const [showBy, setshowBy] = useState('')
-    const [LivBy, setLivBy] = useState('')
+    const [showBy, setshowBy] = useState('');
+    const [LivBy, setLivBy] = useState('');
+    const context = useContext(MyContext)
+
+    useEffect(() => {
+             context.setIsHideSidebarAndHeader(false);
+    }, [])
 
 
     return (
+
+     
         <>
             <div className="right-content w-100">
                 <div className="row dashboardBoxWrapperRow">

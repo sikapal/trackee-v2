@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import SockJS from 'sockjs-client';
@@ -24,6 +25,7 @@ const Header = () => {
   const { unreadMessages, addNotification, removeNotification, hasNewMessage, setHasNewMessage } = useContext(NotificationContext);
   const open = Boolean(anchorEl);
   const openNotifications = Boolean(notificationOpenDrop);
+
   const context = useContext(MyContext);
   const navigate = useNavigate(); // For navigation
 
@@ -75,6 +77,7 @@ const Header = () => {
     };
   }, [addNotification]); 
 
+
   const handleOpenMyAccDrop = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -116,21 +119,46 @@ const Header = () => {
             {/* Logo Wrapper ends */}
 
             {/* searchBox Wrapper starts */}
+
             {context.windowWidth > 992 && (
+
               <div className='col-sm-3 d-flex align-items-center part2 res-hide'>
                 <Button className='rounded-circle mr-3' onClick={() => context.setIsToggleSidebar(!context.isToggleSidebar)}>
                   <MdMenuOpen />
                 </Button>
                 <SearchBox />
+
               </div>
             )}
             {/* searchBox Wrapper ends */}
+
 
             {/* other header Wrapper starts */}
             <div className="col-sm-7 d-flex align-items-center justify-content-end part3">
               <div className='header-button'>
                 <Button className='rounded-circle mr-10'><MdOutlineLightMode /></Button>
+
+
                 <Button className='rounded-circle mr-10'><MdOutlineMailOutline /></Button>
+                <Button className='rounded-circle' onClick={handlenotificationOpenDrop} ><FaRegBell /></Button>
+
+                <div className='dropdownWrapper position relative'>
+                  <Menu
+                    anchorEl={notificationOpenDrop}
+                    id="notification"
+                    className='notification dropdown_list'
+                    open={openNotifications}
+                    onClose={handlenotificationCloseDrop}
+                    onClick={handlenotificationCloseDrop}
+
+                    transformOrigin={{ horizontal: 'left', vertical: 'top' }}
+                    anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                  >
+                    <div className='head'>
+                      <h4>Notifications(5)</h4>
+
+                    </div>
+
 
                 {/* Bell Icon with notification */}
                 <Button className='rounded-circle' onClick={handlenotificationOpenDrop}>
@@ -183,6 +211,14 @@ const Header = () => {
                 </Menu>
               </div>
 
+              { 
+                context.isLogin!==true ?
+                <Link to={'/login'}>
+                   <Button className="btn-blue btn-lg btn-round">Se Connecter</Button>
+              
+                </Link>
+                :
+               
               {/* User profile starts */}
               <div className='myAccWrapper'>
                 <Button className='myAcc d-flex align-items-center' onClick={handleOpenMyAccDrop}>
@@ -220,6 +256,11 @@ const Header = () => {
                 </Menu>
               </div>
               {/* User profile ends */}
+
+            </div>
+              }
+              
+
             </div>
             {/* other header Wrapper ends */}
           </div>

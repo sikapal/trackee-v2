@@ -20,10 +20,10 @@ const StyledBreadcrumb = styled(Chip)(({ theme }) => {
 
 const Form = () => {
 
-     const[categoryVal,setCategoryVal]= useState('');
-     const handleChangeCategory =(event)=>{
+    const [categoryVal, setCategoryVal] = useState('');
+    const handleChangeCategory = (event) => {
         setCategoryVal(event.target.value);
-     };
+    };
 
     return (
         <>
@@ -66,46 +66,46 @@ const Form = () => {
                                 <div className='row'>
                                     <div className='col'>
                                         <div className='form-group'>
-                                    <h6>CATEGORIES</h6>
-                                        <Select 
-                                        value={categoryVal}
-                                        onChange={handleChangeCategory}
-                                        displayEmpty
-                                        inputProps={{'aria-label' : 'Without label'}}
-                                        className='w-100'
-                                        >
-                                            <MenuItem value="">
-                                             <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={10}>Ten</MenuItem>
-                                            <MenuItem value={20}>Twenty</MenuItem>
-                                            <MenuItem value={30}>Thirty</MenuItem>
-  
-                                        </Select>
+                                            <h6>CATEGORIES</h6>
+                                            <Select
+                                                value={categoryVal}
+                                                onChange={handleChangeCategory}
+                                                displayEmpty
+                                                inputProps={{ 'aria-label': 'Without label' }}
+                                                className='w-100'
+                                            >
+                                                <MenuItem value="">
+                                                    <em>None</em>
+                                                </MenuItem>
+                                                <MenuItem value={10}>Ten</MenuItem>
+                                                <MenuItem value={20}>Twenty</MenuItem>
+                                                <MenuItem value={30}>Thirty</MenuItem>
+
+                                            </Select>
                                         </div>
                                     </div>
 
                                     <div className='col'>
                                         <div className='form-group'>
-                                    <h6>OTHER</h6>
-                                        <Select 
-                                        value={categoryVal}
-                                        onChange={handleChangeCategory}
-                                        displayEmpty
-                                        inputProps={{'aria-label' : 'Without label'}}
-                                        className='w-100'
-                                        >
-                                            <MenuItem value="">
-                                             <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={10}>Ten</MenuItem>
-                                            <MenuItem value={20}>Twenty</MenuItem>
-                                            <MenuItem value={30}>Thirty</MenuItem>
-  
-                                        </Select>
+                                            <h6>OTHER</h6>
+                                            <Select
+                                                value={categoryVal}
+                                                onChange={handleChangeCategory}
+                                                displayEmpty
+                                                inputProps={{ 'aria-label': 'Without label' }}
+                                                className='w-100'
+                                            >
+                                                <MenuItem value="">
+                                                    <em>None</em>
+                                                </MenuItem>
+                                                <MenuItem value={10}>Ten</MenuItem>
+                                                <MenuItem value={20}>Twenty</MenuItem>
+                                                <MenuItem value={30}>Thirty</MenuItem>
+
+                                            </Select>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
