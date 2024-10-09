@@ -2,11 +2,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import SockJS from 'sockjs-client';
-import Stomp from 'stompjs';
+import {Stomp} from '@stomp/stompjs';
 import logo from '../../assets/images/logo-64.png';
 import user from '../../assets/images/user.jpg';
 import Button from '@mui/material/Button';
-import { MdMenuOpen, MdOutlineLightMode, MdDarkMode, MdOutlineMailOutline } from 'react-icons/md';
+import { MdMenuOpen, MdOutlineLightMode, MdOutlineMailOutline } from 'react-icons/md';
 import { FaRegBell, FaBell } from 'react-icons/fa6'; // Added FaBell for notification state
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -30,8 +30,7 @@ const Header = () => {
   const navigate = useNavigate(); // For navigation
 
   useEffect(() => {
-    alert("hey")
-    // Create a SockJS connection and STOMP client
+   
     const socket = new SockJS('http://localhost:8080/ws'); // Update with your actual backend URL
     const stompClient = Stomp.over(socket);
 
@@ -44,7 +43,7 @@ const Header = () => {
       stompClient.subscribe(`/topic/messages/35`, (message) => {
         const receivedMessage = JSON.parse(message.body);
         if (Notification.permission === 'granted') {
-          alert("nouveau message");
+        //  alert("nouveau message");
           new Notification('New Message', {
             body: receivedMessage.message, // Assuming 'content' is the message text
           });
@@ -52,7 +51,7 @@ const Header = () => {
           // Request permission if not granted
           Notification.requestPermission().then((permission) => {
             if (permission === 'granted') {
-              alert("no");
+          //    alert("no");
               new Notification('New Message', {
                 body: receivedMessage.message,
               });
@@ -75,7 +74,7 @@ const Header = () => {
         });
       }
     };
-  }, [addNotification]); 
+  }, [addNotification]);
 
 
   const handleOpenMyAccDrop = (event) => {
@@ -136,137 +135,124 @@ const Header = () => {
             {/* other header Wrapper starts */}
             <div className="col-sm-7 d-flex align-items-center justify-content-end part3">
               <div className='header-button'>
-                <Button className='rounded-circle mr-10'><MdOutlineLightMode /></Button>
 
+              <Button className='rounded-circle mr-10'><MdOutlineMailOutline /></Button>
+                
+                  {/* Bell Icon with notification */}
+                  <Button className='rounded-circle' onClick={handlenotificationOpenDrop}>
+                    {hasNewMessage ? <FaBell /> : <FaRegBell />} {/* Changes icon based on message state */}
+                  </Button>
 
                 <Button className='rounded-circle mr-10'><MdOutlineMailOutline /></Button>
-                <Button className='rounded-circle' onClick={handlenotificationOpenDrop} ><FaRegBell /></Button>
+               
 
-                <div className='dropdownWrapper position relative'>
+                
+
+              </div>
+
+              <div className='dropdownWrapper position relative'>
+
+
                   <Menu
                     anchorEl={notificationOpenDrop}
                     id="notification"
                     className='notification dropdown_list'
                     open={openNotifications}
                     onClose={handlenotificationCloseDrop}
-                    onClick={handlenotificationCloseDrop}
-
                     transformOrigin={{ horizontal: 'left', vertical: 'top' }}
                     anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                   >
                     <div className='head'>
-                      <h4>Notifications(5)</h4>
-
+                      <h4>Notifications({unreadMessages.length})</h4>
                     </div>
+                    <Divider className='mb-1' />
 
-
-                {/* Bell Icon with notification */}
-                <Button className='rounded-circle' onClick={handlenotificationOpenDrop}>
-                  {hasNewMessage ? <FaBell /> : <FaRegBell />} {/* Changes icon based on message state */}
-                </Button>
-
-                <Menu
-                  anchorEl={notificationOpenDrop}
-                  id="notification"
-                  className='notification dropdown_list'
-                  open={openNotifications}
-                  onClose={handlenotificationCloseDrop}
-                  transformOrigin={{ horizontal: 'left', vertical: 'top' }}
-                  anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                >
-                  <div className='head'>
-                    <h4>Notifications({unreadMessages.length})</h4>
-                  </div>
-                  <Divider className='mb-1' />
-
-                  <div className='scroll'>
-                    {unreadMessages.map((message) => (
-                      <div key={message.id} onClick={() => handleNotificationClick(message)}>
-                        <div className='d-flex align-items-center'>
-                          <div className='dropdownInfo'>
-                            <div className='info'>
-        <p className='text-sky'>{message.message}</p>
+                    <div className='scroll'>
+                      {unreadMessages.map((message) => (
+                        <div key={message.id} onClick={() => handleNotificationClick(message)}>
+                          <div className='d-flex align-items-center'>
+                            <div className='dropdownInfo'>
+                              <div className='info'>
+                                <p className='text-sky'>{message.message}</p>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
 
-                  {unreadMessages.length === 0 && (
-                    <MenuItem>
-                      <div className='d-flex align-items-center'>
-                        <div className='dropdownInfo'>
-                          <div className='info'>
-                            <h4>Aucune nouvelle notification</h4>
+                    {unreadMessages.length === 0 && (
+                      <MenuItem>
+                        <div className='d-flex align-items-center'>
+                          <div className='dropdownInfo'>
+                            <div className='info'>
+                              <h4>Aucune nouvelle notification</h4>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </MenuItem>
-                  )}
+                      </MenuItem>
+                    )}
 
-                  <div className='btn-blue-wrapper'>
-                    <Button className='btn-blue w-100'>Voir toutes les notifications</Button>
-                  </div>
-                </Menu>
-              </div>
+                    <div className='btn-blue-wrapper'>
+                      <Button className='btn-blue w-100'>Voir toutes les notifications</Button>
+                    </div>
+                  </Menu>
+                </div>
 
-              { 
-                context.isLogin!==true ?
-                <Link to={'/login'}>
-                   <Button className="btn-blue btn-lg btn-round">Se Connecter</Button>
-              
-                </Link>
-                :
+                
+                {
+                  context.isLogin !== true ?
+                    <Link to={'/login'}>
+                      <Button className="btn-blue btn-lg btn-round">Se Connecter</Button>
+
+                    </Link>
+                    :
+
+                    < div className='myAccWrapper'>
+                      <Button className='myAcc d-flex align-items-center' onClick={handleOpenMyAccDrop}>
+                        <div className='userImg'>
+                          <span className='rounded-circle'>
+                            <img src={user} alt='userImg' />
+                          </span>
+                        </div>
+                        <div className='userInfo res-hide'>
+                          <h4>Sikapa Lucien</h4>
+                          <p className='mb-0'>MAT0025</p>
+                        </div>
+                      </Button>
+
+                      <Menu
+                        anchorEl={anchorEl}
+                        id="account-menu"
+                        open={open}
+                        onClose={handleCloseMyAccDrop}
+                        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                      >
+                        <MenuItem onClick={handleCloseMyAccDrop}>
+                          <ListItemIcon><PersonAdd /></ListItemIcon>
+                          Mon Compte
+                        </MenuItem>
+                        <MenuItem onClick={handleCloseMyAccDrop}>
+                          <ListItemIcon><Settings /></ListItemIcon>
+                          Paramètres
+                        </MenuItem>
+                        <MenuItem onClick={handleCloseMyAccDrop}>
+                          <ListItemIcon><Logout /></ListItemIcon>
+                          Déconnexion
+                        </MenuItem>
+                      </Menu>
+                    </div>
+
+                }
+
                
-              {/* User profile starts */}
-              <div className='myAccWrapper'>
-                <Button className='myAcc d-flex align-items-center' onClick={handleOpenMyAccDrop}>
-                  <div className='userImg'>
-                    <span className='rounded-circle'>
-                      <img src={user} alt='userImg' />
-                    </span>
-                  </div>
-                  <div className='userInfo res-hide'>
-                    <h4>Sikapa Lucien</h4>
-                    <p className='mb-0'>MAT0025</p>
-                  </div>
-                </Button>
-
-                <Menu
-                  anchorEl={anchorEl}
-                  id="account-menu"
-                  open={open}
-                  onClose={handleCloseMyAccDrop}
-                  transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                  anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                >
-                  <MenuItem onClick={handleCloseMyAccDrop}>
-                    <ListItemIcon><PersonAdd /></ListItemIcon>
-                    Mon Compte
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseMyAccDrop}>
-                    <ListItemIcon><Settings /></ListItemIcon>
-                    Paramètres
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseMyAccDrop}>
-                    <ListItemIcon><Logout /></ListItemIcon>
-                    Déconnexion
-                  </MenuItem>
-                </Menu>
-              </div>
-              {/* User profile ends */}
-
             </div>
-              }
-              
 
-            </div>
-            {/* other header Wrapper ends */}
           </div>
         </div>
-      </header>
-    </div>
+      </header >
+    </div >
   );
 };
 
