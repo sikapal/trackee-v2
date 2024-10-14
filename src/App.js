@@ -22,9 +22,8 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Notifications from './pages/Notifications';
 import { createContext,  useEffect,  useState } from 'react';
-import { NotificationProvider } from './NotificationContext'; 
-
-
+import { NotificationProvider } from './NotificationContext'; // Import the provider
+import Reception from './pages/Reception';
 
 const MyContext = createContext();
 
@@ -91,16 +90,6 @@ useEffect(()=>{
             <Route path="/edit-user" exact={true} element={<EditUser/>} />
             <Route path="/send-package" exact={true} element={<SendColis/>} />
             <Route path="/delivery" exact={true} element={<Delivery/>} />
-            <Route path="/tracking" exact={true} element={<Tracking/>} />
-            <Route path="/notifications" exact={true} element={<Notifications/>} />
-            <Route path="/agencies" exact={true} element={<Agencies/>} />
-            <Route path="/newAgency" exact={true} element={<NewAgency/>} />
-            <Route path="/editAgency" exact={true} element={<EditAgency/>} />
-            <Route path="/buses" exact={true} element={<Buses/>} />
-            <Route path="/personnel" exact={true} element={<Employees/>} />
-            <Route path="/newBus" exact={true} element={<NewBus/>} />
-            <Route path="/editBus" exact={true} element={<EditBus/>} />
-           
           </Routes>
         </div>
       </div>

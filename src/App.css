@@ -849,7 +849,7 @@ table.v-align td{
 .shadow{
   display: flex;
   flex-wrap: wrap;
-  gap:  65%;
+  gap:  60%;
 
 }
 .shadow2{
