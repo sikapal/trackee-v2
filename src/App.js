@@ -7,12 +7,23 @@ import Dashboard from './pages/Dashboard';
 import Form from './pages/Form/form';
 import Login from './pages/Login';
 import Delivery from './pages/Delivery';
+import Tracking from './pages/Tracking';
 import RegisterUser from './pages/RegisterUser';
+import EditUser from './pages/RegisterUser/editUser.js';
 import SendColis from './pages/SendColis';
+import Agencies from './pages/Agence/index';
+import Employees from './pages/Employee/index';
+import NewAgency from './pages/Agence/newAgency.js';
+import EditAgency from './pages/Agence/editAgency.js';
+import Buses from './pages/Bus/index';
+import NewBus from './pages/Bus/newBus.js';
+import EditBus from './pages/Bus/editBus.js';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
+import Notifications from './pages/Notifications';
 import { createContext,  useEffect,  useState } from 'react';
-import { NotificationProvider } from './NotificationContext'; // Import the provider
+import { NotificationProvider } from './NotificationContext'; 
+
 
 
 const MyContext = createContext();
@@ -77,8 +88,19 @@ useEffect(()=>{
             <Route path="/formupload" exact={true} element={<Form/>} />
             <Route path="/login" exact={true} element={<Login/>} />
             <Route path="/register-user" exact={true} element={<RegisterUser/>} />
+            <Route path="/edit-user" exact={true} element={<EditUser/>} />
             <Route path="/send-package" exact={true} element={<SendColis/>} />
             <Route path="/delivery" exact={true} element={<Delivery/>} />
+            <Route path="/tracking" exact={true} element={<Tracking/>} />
+            <Route path="/notifications" exact={true} element={<Notifications/>} />
+            <Route path="/agencies" exact={true} element={<Agencies/>} />
+            <Route path="/newAgency" exact={true} element={<NewAgency/>} />
+            <Route path="/editAgency" exact={true} element={<EditAgency/>} />
+            <Route path="/buses" exact={true} element={<Buses/>} />
+            <Route path="/personnel" exact={true} element={<Employees/>} />
+            <Route path="/newBus" exact={true} element={<NewBus/>} />
+            <Route path="/editBus" exact={true} element={<EditBus/>} />
+           
           </Routes>
         </div>
       </div>
