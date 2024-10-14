@@ -657,7 +657,7 @@ header .part2{padding-left: 75px;}
   margin-bottom: 0px;
   margin-top: -40px;
   }
-  
+
 .dashboardBoxWrapper .dashboardBox .col1 h4 {
   font-size: 20px;
   font-weight: 600;
@@ -807,11 +807,14 @@ table.v-align td{
   margin: 0px 3px !important;
 }
 .table tbody .actions .secondary{
- background: rgba(203, 60, 231, 0.2) !important;
+ background: rgba(60, 63, 231, 0.2) !important;
 }
 .table tbody .actions .secondary :hover{
   background: rgba(203, 60, 231, 0.2) !important;
   
+ }
+ .table tbody .actions .info{
+  background: rgba(26, 33, 159, 0.2) !important;
  }
 .table tbody .actions .success{
   background: rgba(26, 159, 83, 0.2) !important;
@@ -966,6 +969,10 @@ position: relative;
   background: rgba(7, 186, 87, 0.2) !important;
   border-radius: 8px !important;
  }
+ .table tbody .actionsBtn .info{
+  background: rgba(7, 186, 87, 0.2) !important;
+  border-radius: 8px !important;
+ }
  .table tbody .actionsBtn .error{
   background: rgba(236, 4, 39, 0.2) !important;
   color: #000 !important;
@@ -1014,6 +1021,11 @@ position: relative;
   height: 16px !important; 
 }
 .table tbody .actions .success .icon-container svg{
+  width: 16px !important;  /* Set the desired width */
+  height: 16px !important; 
+  
+}
+.table tbody .actions .info .icon-container svg{
   width: 16px !important;  /* Set the desired width */
   height: 16px !important; 
   
