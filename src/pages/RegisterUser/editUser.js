@@ -9,23 +9,19 @@ import { IoMdEyeOff } from 'react-icons/io';
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import {IoShieldCheckmarkSharp} from 'react-icons/io5';
-import Select from "@mui/material/Select";
-import { MenuItem } from '@mui/material';
+import { MenuItem,Select } from '@mui/material';
 
-
-const RegisterUser = () => {
+const EditUser = () => {
 
     const [inputIndex, setInputIndex] = useState(null)
     const [isShowPassword, setIsShowPassword] = useState(false)
     const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(false);
-    
     const context = useContext(MyContext)
-
+    
     const [roleVal, setRoleVal] = useState('');
     const handleChangeRole = (event) => {
         setRoleVal(event.target.value);
     };
-
 
     useEffect(() => {
         context.setIsHideSidebarAndHeader(true);
@@ -64,11 +60,18 @@ const RegisterUser = () => {
                                 <img src={Logo} alt='img'
                                     width='60px' />
 
-                                <h5 className='font-weight-bold'>Créer un nouvel utilisateur</h5>
+                                <h5 className='font-weight-bold'>Modifier les informations d'un utilisateur</h5>
                             </div>
 
                             <div className='wrapper mt-3 card border'>
                                 <form>
+                                <div className={`form-group mb-3 position-relative ${inputIndex === 2 && 'focus'}`}>
+                                        <span className='icon'><Person2 /></span>
+                                        <input type='text' className='form-control' placeholder="001"
+                                            onFocus={() => focusInput(2)}
+                                            onBlur={() => setInputIndex(null)}
+                                        required readOnly/>
+                                    </div>
                                 <div className={`form-group mb-3 position-relative ${inputIndex === 0 && 'focus'}`}>
                                         <span className='icon'><Person2 /></span>
                                         <input type='text' className='form-control' placeholder='Entrez Le Nom'
@@ -85,13 +88,7 @@ const RegisterUser = () => {
                                         />
                                     </div>
 
-                                    <div className={`form-group mb-3 position-relative ${inputIndex === 2 && 'focus'}`}>
-                                        <span className='icon'><Person2 /></span>
-                                        <input type='text' className='form-control' placeholder="Entrez Le Matricule de l'utilisateur"
-                                            onFocus={() => focusInput(2)}
-                                            onBlur={() => setInputIndex(null)}
-                                        required/>
-                                    </div>
+                                   
 
                                     <div className={`form-group mb-3 position-relative ${inputIndex === 3 && 'focus'}`}>
                                         <span className='icon'><RiLockPasswordFill /></span>
@@ -126,17 +123,7 @@ const RegisterUser = () => {
 
                                         </span>
                                     </div>
-
-                                    {/* <div className={`form-group mb-3 position-relative ${inputIndex === 5 && 'focus'}`}>
-                                        <span className='icon'><RollerShadesClosedOutlined/></span>
-                                        <input type='text' className='form-control' placeholder="Entrez Le rôle de l'utilisateur"
-                                            onFocus={() => focusInput(5)}
-                                            onBlur={() => setInputIndex(null)}
-                                        required/>
-                                    </div> */}
-
-                                    
-                                        <div className='form-group '>
+                                    <div className='form-group '>
                                             <h6>Rôle</h6>
                                             <Select
                                                 value={roleVal}
@@ -152,7 +139,6 @@ const RegisterUser = () => {
 
                                             </Select>
                                         </div>
-                                    
 
                                     <div className='form-group'>
                                         <Button className="btn-blue btn-lg w-100 btn-big mt-3">
@@ -180,4 +166,4 @@ const RegisterUser = () => {
     )
 }
 
-export default RegisterUser 
+export default EditUser 
