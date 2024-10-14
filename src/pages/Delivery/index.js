@@ -6,7 +6,7 @@ import HomeIcon from '@mui/icons-material/Home'
 import styled from 'styled-components'
 import { Chip } from '@mui/material'
 import { Link } from "react-router-dom"
-import { AirportShuttle } from '@mui/icons-material'
+import { AirportShuttle, LocalShipping } from '@mui/icons-material'
 import Button from '@mui/material/Button';
 import Pagination from "@mui/material/Pagination";
 import { MdSend } from 'react-icons/md';
@@ -203,6 +203,13 @@ const Delivery = () => {
                                                 <span className="icon-container">
                                                     <MdSend />
                                                     <span className="tooltip-text">Transférer toute la livraison</span>
+                                                </span>
+                                            </Button>
+ 
+                                            <Button color="info" className="info">
+                                                <span className="icon-container">
+                                                    <LocalShipping />
+                                                    <span className="tooltip-text">Départ Livraison</span>
                                                 </span>
                                             </Button>
                                         </div>
