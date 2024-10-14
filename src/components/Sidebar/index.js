@@ -84,8 +84,8 @@ const Sidebar = () => {
 
           </li>
           <li>
-            <Link to="/notifications">
-              <Button className={`w-100 ${activeTab === 3 ? 'active' : ''}`} onClick={() => isOpenSubmenu(3)}><span className='icon'>   <Badge badgeContent={4} color="success"><FaBell /></Badge></span>
+            <Link to="/">
+              <Button className={`w-100 ${activeTab === 3 ? 'active' : ''}`} onClick={() => isOpenSubmenu(3)}><span className='icon'><FaBell /></span>
                 Notifications
                 <span className='arrow'><FaAngleRight /></span>
               </Button>
