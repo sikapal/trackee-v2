@@ -13,6 +13,7 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import { createContext,  useEffect,  useState } from 'react';
 import { NotificationProvider } from './NotificationContext'; // Import the provider
+import Reception from './pages/Reception';
 
 
 const MyContext = createContext();
@@ -79,6 +80,7 @@ useEffect(()=>{
             <Route path="/register-user" exact={true} element={<RegisterUser/>} />
             <Route path="/send-package" exact={true} element={<SendColis/>} />
             <Route path="/delivery" exact={true} element={<Delivery/>} />
+            <Route path="/reception" exact={true} element={<Reception/>} />
           </Routes>
         </div>
       </div>
