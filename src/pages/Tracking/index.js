@@ -33,7 +33,7 @@ const Tracking = () => {
             lastReferenced: 'New York, NY, USA'
         };
 
-        // Update the state
+        
         setLocation({ lat: fetchedLocation.lat, lng: fetchedLocation.lng });
         setLastReferencedLocation(fetchedLocation.lastReferenced);
     };

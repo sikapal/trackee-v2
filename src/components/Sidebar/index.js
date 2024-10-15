@@ -5,9 +5,12 @@ import { FaAngleRight, FaBell, FaProductHunt } from "react-icons/fa6"
 import {  IoMdLogOut } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import Send from '@mui/icons-material/Send'
-import { AirportShuttle, Report } from '@mui/icons-material'
+import { AirportShuttle, Report, ScatterPlotSharp } from '@mui/icons-material'
 import GpsFixedIcon from '@mui/icons-material/GpsFixed';
-import Badge from '@mui/material/Badge';
+import { PiHandWithdrawFill } from 'react-icons/pi'
+import { FaRaspberryPi } from 'react-icons/fa'
+import { GrResources } from 'react-icons/gr'
+
 
 const Sidebar = () => {
 
@@ -43,24 +46,17 @@ const Sidebar = () => {
             </Link>
 
           </li>
-
-
-          <li>
-            <Button className={`w-100 ${activeTab === 1 && isToggleSubmenu ? 'active'  : ''}`} onClick={() => isOpenSubmenu(1)}><span className='icon'><FaProductHunt /></span>
-              
-              <span style={{ color: isButtonColorBlue ? '#20948B' : 'inherit' }}>Accessoires</span> 
+             
+             <li>
+             <Link to="/reception">
+              <Button className={`w-100 ${activeTab === 9 ? 'active' : ''}`} onClick={() => isOpenSubmenu(9)}><span className='icon'><PiHandWithdrawFill /></span>
   
-              <span className='arrow'><FaAngleRight /></span>
-            </Button>
-            <div className={`submenuWrapper ${activeTab === 1 && isToggleSubmenu === true ? 'colapse' : 'colapsed'}`}>
-              <ul className='submenu'>
-                <li><Link to="/buses">Gestion des Véhicules</Link></li>
-                <li><Link to="/personnel">Gestion du Personnel</Link></li>
-                <li><Link to="/agencies">Gestion des Agences</Link></li>
+                Reception et Retrait
+                <span className='arrow'><FaAngleRight /></span>
+              </Button>
+            </Link>
+             </li>
 
-              </ul>
-            </div>
-          </li>
          
           <li>
             <Link to="/delivery">
@@ -84,7 +80,7 @@ const Sidebar = () => {
 
           </li>
           <li>
-            <Link to="/">
+            <Link to="/notifications">
               <Button className={`w-100 ${activeTab === 3 ? 'active' : ''}`} onClick={() => isOpenSubmenu(3)}><span className='icon'><FaBell /></span>
                 Notifications
                 <span className='arrow'><FaAngleRight /></span>
@@ -103,8 +99,25 @@ const Sidebar = () => {
 
           </li>
           <li>
+            <Button className={`w-100 ${activeTab === 1 && isToggleSubmenu ? 'active'  : ''}`} onClick={() => isOpenSubmenu(1)}><span className='icon'><GrResources /></span>
+              
+              <span style={{ color: isButtonColorBlue ? '#20948B' : 'inherit' }}>Gestion Des Ressources</span> 
+  
+              <span className='arrow'><FaAngleRight /></span>
+            </Button>
+            <div className={`submenuWrapper ${activeTab === 1 && isToggleSubmenu === true ? 'colapse' : 'colapsed'}`}>
+              <ul className='submenu'>
+                <li><Link to="/buses">Gestion des Véhicules</Link></li>
+                <li><Link to="/personnel">Gestion du Personnel</Link></li>
+                <li><Link to="/agencies">Gestion des Agences</Link></li>
+
+              </ul>
+            </div>
+          </li>
+         
+          <li>
             <Link to="/rebuts">
-              <Button className={`w-100 ${activeTab === 7 ? 'active' : ''}`} onClick={() => isOpenSubmenu(7)}><span className='icon'><GpsFixedIcon/></span>
+              <Button className={`w-100 ${activeTab === 7 ? 'active' : ''}`} onClick={() => isOpenSubmenu(7)}><span className='icon'><ScatterPlotSharp/></span>
                 Rebuts
                 <span className='arrow'><FaAngleRight /></span>
               </Button>
