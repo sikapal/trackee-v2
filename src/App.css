@@ -42,8 +42,9 @@
   --colorbg--: #ebe9e9;
   --searchBoxBg--: #f0f5ff;
   --redcolor--: #CC313D;
+  --graycolor--: #e2dcdd9d;
   --yellowcolor--:rgb(196, 202, 8);
-  --greencolor--: #89ABE3;
+  --greencolor--: rgb(23, 159, 48);
   --savegreen--:rgb(23, 159, 48);
   --savered--:rgb(198, 52, 52); ;
   --savemaincolor--:#0858f7;
@@ -71,6 +72,16 @@
 }
 .btn-yellow{
   background:var(--yellowcolor--) !important;
+  font-size: 12px !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-transform: capitalize !important;
+  padding-bottom: 2px;
+
+}
+.btn-gray{
+  background:var(--graycolor--) !important;
   font-size: 12px !important;
   color: #000 !important;
   font-weight: 600 !important;
@@ -229,6 +240,7 @@ header .part2{padding-left: 75px;}
   background: transparent;
   border: 0px;
   outline: none;
+  width: 350px;
   padding-left: 5px;
   font-size: 14px;
   color: var(--colorbg--);
@@ -849,7 +861,7 @@ table.v-align td{
 .shadow{
   display: flex;
   flex-wrap: wrap;
-  gap:  60%;
+  gap:  65%;
 
 }
 .shadow2{
@@ -1083,3 +1095,19 @@ position: relative;
   font-size: 14px !important;
   font-weight: 800;
 }
+
+
+/* reception test*/
+
+.user-box {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 20px;
+  
+}
+
+.main-button{
+  background: var(--maincolor--) !important;
+  color: #fff;
+}
+
