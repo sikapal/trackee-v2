@@ -36,9 +36,9 @@ public class JwtAuthenticationController {
                 final String token = jwtTokenUtil.generateToken(userDetails);
                 
                 // Set session attributes
-                session.setAttribute("Agence", userDetails.getAgence().getVille());
-                session.setAttribute("agency_num", userDetails.getAgence().getId());
-                session.setAttribute("ville", userDetails.getAgence().getVille());
+                session.setAttribute("Agence", userDetails.getAgence().getAgencyCode());
+                session.setAttribute("agencyId", userDetails.getAgence().getId());
+                session.setAttribute("agencyTown", userDetails.getAgence().getAgencyTown());
                 session.setAttribute("token", token);
 
                 // Return the token in the response

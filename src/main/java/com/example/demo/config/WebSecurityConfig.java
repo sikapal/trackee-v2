@@ -38,7 +38,7 @@ public class WebSecurityConfig {
 		// We don't need CSRF for this example
         //http.csrf().disable()
         http.csrf().disable().
-  authorizeRequests().requestMatchers("/authenticate ").permitAll();
+  authorizeRequests().requestMatchers("/authenticate ", "/** ").permitAll();
 		/*.authorizeHttpRequests(requests -> requests.requestMatchers(new 
         		AntPathRequestMatcher("/authenticate")).permitAll()).
         authorizeHttpRequests((authorize) ->
