@@ -16,7 +16,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "personnele")
+@Table(name = "personnelle")
 public class StaffUserDetails implements UserDetails {
 	
 	/**
