@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.model.Bus;
 
 @Repository
-public interface BusRepository extends JpaRepository<Bus, String> {
+public interface BusRepository extends JpaRepository<Bus, Integer> {
 	Bus findByMatricule(String Matricule);
 }
